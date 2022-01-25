@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msc_commerce/app_colors/app_colors.dart';
+import 'package:msc_commerce/custom_view/choose_brand_name.dart';
 
 class BrandScreen extends StatelessWidget {
   const BrandScreen({Key? key}) : super(key: key);
@@ -8,11 +9,11 @@ class BrandScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Brand'), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Column(
-          children: [
-            TextField(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: TextField(
               enabled: false,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -29,60 +30,63 @@ class BrandScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(bottom: 30.0),
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: 45.0,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'CLEAR',
-                        style: TextStyle(
+          ),
+          const SizedBox(height: 20.0),
+          const Expanded(flex: 12, child: ChooseBrandName()),
+          const Spacer(),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(bottom: 30.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            alignment: Alignment.bottomCenter,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  height: 45.0,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'CLEAR',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      overlayColor: MaterialStateProperty.all(
+                          Colors.green[900]?.withOpacity(0.2)),
+                      side: MaterialStateProperty.all<BorderSide>(
+                        const BorderSide(
                           color: Colors.grey,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        overlayColor: MaterialStateProperty.all(
-                            Colors.green[900]?.withOpacity(0.2)),
-                        side: MaterialStateProperty.all<BorderSide>(
-                          const BorderSide(
-                            color: Colors.grey,
-                          ),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: 45.0,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'APPLY',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(primaryColor),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  height: 45.0,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'APPLY',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
                       ),
                     ),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(primaryColor),
+                    ),
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

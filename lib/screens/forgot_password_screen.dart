@@ -56,9 +56,13 @@ class ForgotPasswordScreen extends StatelessWidget {
                   child: MaterialButton(
                     onPressed: () {},
                     color: primaryColor,
-                    child: Text('send'.toUpperCase(),
-                        style: const TextStyle(
-                            color: Colors.white, fontSize: 18.0)),
+                    child: Text(
+                      'send'.toUpperCase(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                      ),
+                    ),
                   ),
                 ),
               ),

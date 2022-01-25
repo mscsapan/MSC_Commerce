@@ -93,7 +93,8 @@ class _WomenShoeScreenState extends State<WomenShoeScreen> {
                     .toList(),
               ),
               trailing: TextButton(
-                  onPressed: () => goToNextScreen(context, FilterScreen()),
+                  onPressed: () =>
+                      goToNextScreen(context, const FilterScreen()),
                   child: const Text(
                     'FILTER',
                     style: TextStyle(color: Colors.black),
@@ -139,7 +140,7 @@ class GridViewTile extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.26,
                 width: MediaQuery.of(context).size.width / 2.0,
                 child: ClipRRect(
