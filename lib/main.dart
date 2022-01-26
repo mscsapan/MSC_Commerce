@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:msc_commerce/app_colors/app_colors.dart';
-import 'package:msc_commerce/screens/t_shirt_screen.dart';
-import 'package:msc_commerce/screens/women_shoe_screen.dart';
+import 'package:msc_commerce/screens/main_screen.dart';
+import 'package:msc_commerce/screens/nav_screen/home_nav_screen.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: TShirtScreen(),
+      home: const MainScreen(),
       theme: ThemeData(
         scaffoldBackgroundColor: greyColor,
         appBarTheme: const AppBarTheme(

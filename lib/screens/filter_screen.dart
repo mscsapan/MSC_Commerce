@@ -20,6 +20,7 @@ class _FilterScreenState extends State<FilterScreen> {
     'COLOR',
     'MATERIAL',
   ];
+  RangeValues value = const RangeValues(100, 400);
 
   Widget allNames(int index) {
     return Column(
@@ -42,6 +43,8 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    RangeLabels labels =
+        RangeLabels(value.start.toString(), value.end.toString());
     return Scaffold(
       appBar: AppBar(title: const Text('Filter'), centerTitle: true),
       body: Padding(
@@ -61,15 +64,15 @@ class _FilterScreenState extends State<FilterScreen> {
                   style:
                       TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
             ),
-            /* Slider(
-                activeColor: primaryColor,
-                value: initialValue,
-                onChanged: (double value) {
-                  setState(() {
-                    initialValue = value;
-                  });
-                })*/
-            Stack(
+            RangeSlider(
+              values: value,
+              activeColor: primaryColor,
+              labels: labels,
+              onChanged: (RangeValues newValue) {
+                setState(() => value = newValue);
+              },
+            ),
+            /* Stack(
               clipBehavior: Clip.none,
               children: [
                 Container(
@@ -113,7 +116,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                 ),
               ],
-            ),
+            ),*/
             const SizedBox(height: 25.0),
             const Divider(
               thickness: 1.5,

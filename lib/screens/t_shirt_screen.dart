@@ -8,7 +8,8 @@ class TShirtScreen extends StatefulWidget {
   State<TShirtScreen> createState() => _TShirtScreenState();
 }
 
-class _TShirtScreenState extends State<TShirtScreen> {
+class _TShirtScreenState extends State<TShirtScreen>
+    with SingleTickerProviderStateMixin {
   final List<String> items = ['Select Size', 'XS', 'X', 'XX', 'XL', 'L' 'M'];
 
   final List<String> colors = [
@@ -19,11 +20,31 @@ class _TShirtScreenState extends State<TShirtScreen> {
     'White',
     'Blue Grey'
   ];
+  AnimationController? animationController;
+  Animation? animation;
+  bool isFavourite = false;
   String? itemValue;
   String? colorValue;
   final String title = 'MARCELO BOURBON COUNTY OF MILAN';
   final String description =
       'Sometimes life feels like a carnival, lots of ups and downs and 360 spins, maybe a few bumps along the way. With this in mind, Marcelo Burlon County of Milan presents this black cotton bumper car print T-shirt. Enjoy the ride! Featuring a ribbed crew neck, short sleeves, a graphic print and a straight fit.';
+
+  @override
+  void initState() {
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 600));
+    animation = ColorTween(begin: blackColor, end: Colors.red)
+        .animate(animationController!);
+    animationController!.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() => isFavourite = true);
+      }
+      if (status == AnimationStatus.dismissed) {
+        setState(() => isFavourite = false);
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -201,12 +222,32 @@ class _TShirtScreenState extends State<TShirtScreen> {
                             MaterialStateProperty.all<Color>(Colors.white),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)))),
-                    onPressed: () => debugPrint('Favorite Presses'),
-                    child: const Icon(
-                      Icons.favorite_outline,
-                      color: blackColor,
-                      size: 28.0,
-                    ),
+                    onPressed: () {
+                      isFavourite
+                          ? animationController!.reverse()
+                          : animationController!.forward();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          duration: const Duration(milliseconds: 500),
+                          content: Text(!isFavourite
+                              ? 'Added To Favorite'
+                              : 'Remove from Favorite'),
+                        ),
+                      );
+                    },
+                    child: AnimatedBuilder(
+                        animation: animationController!,
+                        builder: (context, _) {
+                          return Icon(
+                            isFavourite
+                                ? Icons.favorite
+                                : Icons.favorite_outline,
+                            //Icons.favorite,
+                            //color: isFavourite ? Colors.red : blackColor,
+                            color: animation!.value,
+                            size: 28.0,
+                          );
+                        }),
                   ),
                 ),
               ],
