@@ -34,9 +34,8 @@ class _ChooseBrandNameState extends State<ChooseBrandName> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
-      height: height,
-      width: width,
       //margin: const EdgeInsets.only(top: 16.0),
+      height: height * 0.55,
       color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

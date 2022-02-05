@@ -32,11 +32,10 @@ class BrandScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20.0),
-          const Expanded(flex: 12, child: ChooseBrandName()),
-          const Spacer(),
+          const ChooseBrandName(),
           Container(
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(bottom: 30.0),
+            margin: const EdgeInsets.only(bottom: 30.0, top: 30.0),
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             alignment: Alignment.bottomCenter,
             child: Row(
@@ -85,7 +84,7 @@ class BrandScreen extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

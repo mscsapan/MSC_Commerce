@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:msc_commerce/app_colors/app_colors.dart';
 import 'package:msc_commerce/screens/tab_screen/kids_tab_screen.dart';
 import 'package:msc_commerce/screens/tab_screen/men_tab_screen.dart';
@@ -10,8 +9,6 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: [SystemUiOverlay.top]);
     return DefaultTabController(
       length: 3,
       child: Scaffold(

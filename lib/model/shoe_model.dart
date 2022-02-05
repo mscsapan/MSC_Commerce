@@ -2,6 +2,7 @@ class ShoeModel {
   final String name;
   final String image;
   final double price;
+
   ShoeModel({required this.image, required this.name, required this.price});
 }
 

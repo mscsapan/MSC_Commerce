@@ -19,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     SearchScreen(),
     FavoriteScreen(),
-    CartScreen(),
+    MyBagScreen(),
     ProfileScreen(),
   ];
   int _currentIndex = 0;

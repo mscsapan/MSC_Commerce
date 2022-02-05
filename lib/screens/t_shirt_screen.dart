@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:msc_commerce/app_colors/app_colors.dart';
+import 'package:msc_commerce/custom_view/route_screen.dart';
+import 'package:msc_commerce/screens/nav_screen/favourite_nav_screen.dart';
 
 class TShirtScreen extends StatefulWidget {
   const TShirtScreen({Key? key}) : super(key: key);
@@ -228,7 +230,14 @@ class _TShirtScreenState extends State<TShirtScreen>
                           : animationController!.forward();
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          duration: const Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 1200),
+                          behavior: SnackBarBehavior.floating,
+                          action: SnackBarAction(
+                              label: 'Go To Favorite',
+                              onPressed: () => goToNextScreen(
+                                  context, const FavoriteScreen())),
+                          margin: const EdgeInsets.only(
+                              bottom: 12.0, left: 10.0, right: 10.0),
                           content: Text(!isFavourite
                               ? 'Added To Favorite'
                               : 'Remove from Favorite'),

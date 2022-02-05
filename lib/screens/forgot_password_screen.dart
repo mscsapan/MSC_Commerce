@@ -28,14 +28,11 @@ class ForgotPasswordScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Forgot Password',
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.w500,
-                letterSpacing: 2.0,
-              ),
-            ),
+            const Text('Forgot Password',
+                style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 2.0)),
             SizedBox(height: MediaQuery.of(context).size.height * 0.2),
             Text(
               message,
@@ -58,10 +55,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                     color: primaryColor,
                     child: Text(
                       'send'.toUpperCase(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 18.0),
                     ),
                   ),
                 ),

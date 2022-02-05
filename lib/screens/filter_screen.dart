@@ -20,7 +20,7 @@ class _FilterScreenState extends State<FilterScreen> {
     'COLOR',
     'MATERIAL',
   ];
-  RangeValues value = const RangeValues(100, 400);
+  RangeValues value = const RangeValues(0.4, 0.8);
 
   Widget allNames(int index) {
     return Column(
@@ -68,6 +68,7 @@ class _FilterScreenState extends State<FilterScreen> {
               values: value,
               activeColor: primaryColor,
               labels: labels,
+              //divisions: 8,
               onChanged: (RangeValues newValue) {
                 setState(() => value = newValue);
               },
@@ -126,7 +127,7 @@ class _FilterScreenState extends State<FilterScreen> {
             Column(
                 children:
                     List.generate(names.length, (index) => allNames(index))),
-            const Spacer(),
+            const SizedBox(height: 30.0),
             Container(
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.only(bottom: 30.0),
@@ -178,7 +179,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:msc_commerce/app_colors/app_colors.dart';
-import 'package:msc_commerce/screens/main_screen.dart';
-import 'package:msc_commerce/screens/nav_screen/home_nav_screen.dart';
+import 'package:msc_commerce/screens/checkout_screen.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: const MainScreen(),
+      home: const CheckoutScreen(),
       theme: ThemeData(
         scaffoldBackgroundColor: greyColor,
         appBarTheme: const AppBarTheme(
