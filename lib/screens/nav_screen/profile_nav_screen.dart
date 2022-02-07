@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,6 +12,15 @@ class ProfileScreen extends StatelessWidget {
     'Promo Code',
     'My Review',
     'Setting',
+  ];
+
+  static List<String> subTitle = [
+    'Already have 2 orders',
+    '2 addresses',
+    'Visa **89',
+    'You don\'t have special promo code',
+    'Review for 12 items',
+    'Notification, password',
   ];
 
   @override
@@ -70,23 +78,25 @@ class ProfileScreen extends StatelessWidget {
                     .copyWith(dividerColor: Colors.transparent),
                 child: Column(
                   children: List.generate(
-                      title.length,
-                      (index) => ExpansionTile(
-                            title: Text(title[index],
-                                style: const TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold)),
-                            subtitle: Text(
-                              'Already have 2 orders',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(
-                                      fontSize: 16.0, color: Colors.black26),
-                            ),
-                            children: const [Text('Hello Mohammad Sapan')],
-                          )),
+                    title.length,
+                    (index) => ExpansionTile(
+                      childrenPadding:
+                          const EdgeInsets.symmetric(horizontal: 12.0),
+                      title: Text(title[index],
+                          style: const TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold)),
+                      subtitle: Text(
+                        subTitle[index],
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(fontSize: 16.0, color: Colors.black26),
+                      ),
+                      children: const [Text('Hello Mohammad Sapan')],
+                    ),
+                  ),
                 ),
               ),
             )
